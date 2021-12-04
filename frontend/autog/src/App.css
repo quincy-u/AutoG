@@ -1,9 +1,19 @@
-.TimeTable {
-    position: absolute;
-    right: 10px;
+.HomeBackground {
+    height: auto;
 }
 
-.SearchBar{
-    position: absolute;
-    left: 10px;
+.TimeTable {
+    background-color: blue;
+    float: left;
+    width: 70%;
 }
+
+.SearchBar {
+    background-color: pink;
+    float: left;
+    width: 30%;
+    padding: 2%;
+}
+
+
+/* SearchBar */
