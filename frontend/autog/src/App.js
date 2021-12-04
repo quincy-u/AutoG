@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import TimeTable from "./components/TimeTable";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
