@@ -1,0 +1,52 @@
+.LeftSider {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchBar {
+    float: left;
+    padding: 5%;
+    padding-top: 10%;
+    width: 100%;
+    display: block;
+}
+
+.SearchInput {
+    width: 100%;
+}
+
+.SearchResultContainer {
+    overflow-y: scroll;
+    max-height: 30vh;
+    background-color: whitesmoke;
+    box-shadow: 0 0 20px #888;
+}
+
+.SearchItem {
+    font-size: small;
+    padding: 10px 20px;
+}
+
+.HighLighted {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.SavedCoursesList {
+    padding: 5%;
+    padding-top: 20%;
+}
+
+.CourseListTitle {
+    text-align: center;
+}
+
+.SavedCoursesContainer {
+    border-top: #013a6f;
+    border-top-width: 2px;
+}
+
+.SavedCourseTitle {
+    font-size: large;
+}

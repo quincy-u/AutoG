@@ -30,7 +30,7 @@ const TimeTable = () => {
                 </thead>
                 <tbody>
                     <tr className="t0">
-                        <td rowspan="4" className="line">
+                        <td rowSpan="4" className="line">
                             8:00
                         </td>
                         <td className="line"></td>
@@ -63,7 +63,7 @@ const TimeTable = () => {
 
 
                     <tr className="t4">
-                        <td rowspan="4" className="line">
+                        <td rowSpan="4" className="line">
                             9:00
                         </td>
                         <td className="line"></td>
@@ -95,7 +95,7 @@ const TimeTable = () => {
                     </tr>
 
                     <tr className="t8">
-                        <td rowspan="4" className="line">
+                        <td rowSpan="4" className="line">
                             10:00
                         </td>
                         <td className="line"></td>

@@ -1,22 +1,31 @@
-import logo from "./logo.svg";
 import TimeTable from "./components/TimeTable/TimeTable";
-import SearchBar from "./components/SearchBar/SearchBar";
+import LeftSider from "./components/LeftSider/LeftSider";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import "bootstrap/dist/css/bootstrap.css";
+import { useState } from 'react';
 
-function App() {
+const App = () => {
+    const [savedCourses, setSavedCourses] = useState([
+        {
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },
+    ])
     return (
         <div className="App">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-lg-2">
-                    <SearchBar/>
-                        </div> 
-                    <div className="col-lg-10">
-                    <TimeTable ></TimeTable>
+                    <div className="col-lg-3">
+                        <LeftSider
+                            savedCourses={savedCourses}
+                            setSavedCourses={setSavedCourses} />
+                    </div>
+                    <div className="col-lg-7">
+                        <TimeTable />
                     </div>
                 </div>
             </div>
