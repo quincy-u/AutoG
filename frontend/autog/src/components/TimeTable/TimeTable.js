@@ -1,518 +1,132 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import "./TimeTable.css";
-
 const TimeTable = () => {
     return (
         <div>
             <p>this is the time table </p>
-            <table>
-                <tbody>
+            <table className="table table-borderless">
+                <thead>
                     <tr>
-                        <td className="session">Winter</td>
-                        <td>Mon</td>
-                        <td>Tue</td>
-                        <td>Wed</td>
-                        <td>Thu</td>
-                        <td>Fri</td>
+                        <th scope="col" className="col-lg-1">
+                            Winter
+                        </th>
+                        <th scope="col" className="col-lg-2">
+                            Mon
+                        </th>
+                        <th scope="col" className="col-lg-2">
+                            Tue
+                        </th>
+                        <th scope="col" className="col-lg-2">
+                            Wed
+                        </th>
+                        <th scope="col" className="col-lg-2">
+                            Thu
+                        </th>
+                        <th scope="col" className="col-lg-2">
+                            Fri
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className="t0">
+                        <td rowspan="4" className="line">
+                            8:00
+                        </td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                    </tr>
+                    <tr className="t1">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t2">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t3">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+
+                    <tr className="t4">
+                        <td rowspan="4" className="line">
+                            9:00
+                        </td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                    </tr>
+                    <tr className="t5">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t6">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t7">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr className="t8">
+                        <td rowspan="4" className="line">
+                            10:00
+                        </td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                        <td className="line"></td>
+                    </tr>
+                    <tr className="t9">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t10">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr className="t11">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
-            <div className="TableBody">
-                <table>
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            8:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            9:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            10:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            11:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            12:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            13:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            14:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            15:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            16:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            17:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            18:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            19:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            20:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            21:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr className="t0 line">
-                        <td className="timeDisplay" rowspan="4" style={{width: '40px'}}>
-                            22:00
-                        </td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                        <td className="line" style={{width: "149.2px"}}></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </table>
-            </div>
         </div>
     );
 };

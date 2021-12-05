@@ -1,5 +1,7 @@
-/* .TimeTable {
-    background-color: white;
-    float: left;
-    width: 70%;
-} */
+.line{
+    border-top: 1px solid grey !important;
+}
+
+td,th{
+    text-align: center !important;
+}
