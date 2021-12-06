@@ -9,31 +9,9 @@ import Button from 'react-bootstrap/Button'
 
 const courseDB = [
     {
-        title: "CSC108",
-        description: 'a CS course'
+        title: "MAT137",
+        description: 'a math course'
     },
-    {
-        title: "CSC148",
-        description: 'another CS course'
-    },
-    {
-        title: "CSC165",
-        description: 'a latex course'
-    },
-    {
-        title: "CSC420",
-        description: 'cv course'
-    },
-    {
-        title: "CSC311",
-        description: 'machine learning course'
-    },
-    {
-        title: "CSC413",
-        description: 'deep learning course'
-    },
-
-
     {
         title: "CSC108",
         description: 'a CS course'
@@ -60,6 +38,7 @@ const courseDB = [
     },
 ]
 
+const SearchResultContainer = document.getElementById("SearchResultContainer")
 
 const LeftSider = (props) => {
     const [searchedCourses, setSearchedCourses] = useState([])
@@ -72,7 +51,7 @@ const LeftSider = (props) => {
         } else {
             let coursesToDisplay = courseDB.filter(course => course.title.toUpperCase().indexOf(input) > -1);
             if (coursesToDisplay.length === 0) {
-                setSearchedCourses([{ title: 'no courses found', description: '' }]);
+                setSearchedCourses([{ title: 'no courses found for ' + e.target.value, description: '' }]);
             }
             else {
                 setSearchedCourses(coursesToDisplay);
@@ -80,10 +59,19 @@ const LeftSider = (props) => {
         }
     }
 
-    function addCourse() {
-        setSearchedCourses([]);
-        console.log('1');
+    function addCourse(title) {
+        if (props.savedCourses.filter((course) => course.title === title).length === 0) {
+            let courseToAdd = searchedCourses.filter((course) => title === course.title);
+            let newSavedCourses = props.savedCourses.concat(courseToAdd)
+            props.setSavedCourses(newSavedCourses);
+        }
+        setSearchedCourses([])
     }
+
+    function removeCourse(title) {
+        props.setSavedCourses(props.savedCourses.filter((course) => title !== course.title))
+    }
+
 
     return (
         <div className="LeftSider">
@@ -96,9 +84,9 @@ const LeftSider = (props) => {
                         onChange={(e) => onSearch(e)}
                     />
                 </InputGroup>
-                <div className="SearchResultContainer">
+                <div id="SearchResultContainer" className="SearchResultContainer">
                     {searchedCourses.map((course) => (
-                        <div className="SearchItem" key={course.title} action onClick={() => { addCourse() }}>
+                        <div className="SearchItem" key={course.title} action="true" onClick={() => addCourse(course.title)}>
                             {course.title}
                         </div>
                     ))}
@@ -118,7 +106,8 @@ const LeftSider = (props) => {
                                 <div className="SavedCourseTitle">{course.title}</div>
                                 {course.description}
                             </div>
-                            <Button variant="secondary" size="sm">
+                            <Button variant="secondary" size="sm"
+                                onClick={() => removeCourse(course.title)}>
                                 remove
                             </Button>
                         </ListGroup.Item>
@@ -149,35 +138,5 @@ window.addEventListener('mouseout', function (e) {
         removeHighlight(e.target);
     }
 });
-
-
-
-// function onLoadDisplaySearchResult(courses) {
-//     const result = courses.map((course) =>
-//         <ListGroup.Item className="SearchItem" onClick={() => { searchResultOnClick() }}>
-//             {course}
-//         </ListGroup.Item>
-//     );
-//     return result;
-// }
-
-// function searchForCourses() {
-//     console.log(1);
-// }
-
-// function setDisplaySearchResult(courses) {
-//     const htmlString = toDisplay
-//         .map((course) => {
-//             return `
-//             <ListGroup.Item className="SearchItem" onClick={() => { searchResultOnClick() }}>
-//                 ${course}
-//             </ListGroup.Item>
-//             `;
-//         }).join('');
-//     SearchCourseList.innerHTML = htmlString;
-// }
-
-// const SearchCourseList = document.getElementById("CourseList");
-// const SearchInput = document.getElementById('SearchInput');
 
 export default LeftSider;
