@@ -5,7 +5,7 @@ import './LeftSider.css'
 import { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
-
+import uniqid from 'uniqid';
 
 const courseDB = [
     {
@@ -86,7 +86,7 @@ const LeftSider = (props) => {
                 </InputGroup>
                 <div id="SearchResultContainer" className="SearchResultContainer">
                     {searchedCourses.map((course) => (
-                        <div className="SearchItem" key={course.title} action="true" onClick={() => addCourse(course.title)}>
+                        <div className="SearchItem" key={uniqid()} action="true" onClick={() => addCourse(course.title)}>
                             {course.title}
                         </div>
                     ))}
@@ -100,7 +100,7 @@ const LeftSider = (props) => {
                 <ListGroup className="SavedCoursesContainer">
                     {props.savedCourses.map((course) => (
                         <ListGroup.Item
-                            key={course.title}
+                            key={uniqid()}
                             className="d-flex justify-content-between align-items-start">
                             <div className="ms-2 me-auto">
                                 <div className="SavedCourseTitle">{course.title}</div>
