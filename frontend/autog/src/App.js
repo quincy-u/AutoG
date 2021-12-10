@@ -76,7 +76,7 @@ const App = () => {
                             savedCourses={savedCourses}
                             setSavedCourses={setSavedCourses} />
                     </div>
-                    <div className="col-lg-7">
+                    <div className="col-lg-9">
                         <TimeTable />
                     </div>
                 </div>
