@@ -1,7 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./TimeTable.css";
+import uniqid from 'uniqid';
+
 const TimeTable = () => {
+    let timeRange = Array.from(Array(21).keys()).slice(8);
+    console.log(timeRange);
     return (
         <div>
             <p>this is the time table </p>
@@ -29,102 +33,41 @@ const TimeTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="t0">
-                        <td rowSpan="4" className="line">
-                            8:00
-                        </td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                    </tr>
-                    <tr className="t1">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t2">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t3">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-
-                    <tr className="t4">
-                        <td rowSpan="4" className="line">
-                            9:00
-                        </td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                    </tr>
-                    <tr className="t5">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t6">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t7">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                    <tr className="t8">
-                        <td rowSpan="4" className="line">
-                            10:00
-                        </td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                        <td className="line"></td>
-                    </tr>
-                    <tr className="t9">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t10">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr className="t11">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {timeRange.map((t) => (
+                        <React.Fragment key={uniqid()}>
+                            <tr className={`t${(t - 8) * 4}`}>
+                                <td rowSpan="4" className="line">
+                                    {t}:00
+                                </td>
+                                <td className="line"></td>
+                                <td className="line"></td>
+                                <td className="line"></td>
+                                <td className="line"></td>
+                                <td className="line"></td>
+                            </tr>
+                            <tr className={`t${(t - 8) * 4 + 1}`}>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr className={`t${(t - 8) * 4 + 2}`}>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr className={`t${(t - 8) * 4 + 3}`}>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </React.Fragment>
+                    ))}
                 </tbody>
             </table>
         </div>

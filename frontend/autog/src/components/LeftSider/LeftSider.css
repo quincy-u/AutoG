@@ -9,6 +9,7 @@
     padding: 5%;
     padding-top: 10%;
     width: 100%;
+    height: 50%;
     display: block;
 }
 
@@ -35,7 +36,6 @@
 
 .SavedCoursesList {
     padding: 5%;
-    padding-top: 20%;
 }
 
 .CourseListTitle {
@@ -45,6 +45,8 @@
 .SavedCoursesContainer {
     border-top: #013a6f;
     border-top-width: 2px;
+    overflow-y: scroll;
+    max-height: 50vh;
 }
 
 .SavedCourseTitle {

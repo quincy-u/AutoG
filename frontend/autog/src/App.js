@@ -14,6 +14,58 @@ const App = () => {
             title: 'MAT137',
             description: 'a math course'
         },
+
+
+        {
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },{
+            title: 'CSC108',
+            description: 'a CS course'
+        },
+        {
+            title: 'MAT137',
+            description: 'a math course'
+        },
     ])
     return (
         <div className="App">
