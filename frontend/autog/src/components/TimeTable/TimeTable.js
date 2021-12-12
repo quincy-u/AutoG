@@ -2,10 +2,39 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./TimeTable.css";
 import uniqid from "uniqid";
-import CourseCard from "../CourseCard/CourseCard";
+import SubSectionCard, {getAllSubSections} from "../SubSectionCard/SubSectionCard";
+import Course from "../../model/Course";
 
+//TODO remove the test function when finish
+//===========
+
+
+function fetchData(){
+    return fetch("./hardCodeData/Example.json").then(res=>{return res.json();})
+}
+
+
+const test = ()=>{
+    let promise = fetchData();
+    promise.then(
+        json =>{
+            console.log("the json is ", json);
+            let c = Course.fromJson(json);
+            console.log(c);
+        }
+    ).catch((message)=>{
+        console.log(message);
+        console.log("promise failed");
+    })
+}
+
+//==========
 const TimeTable = () => {
     let timeRange = Array.from(Array(21).keys()).slice(8);
+
+    //TODO remove these testing code when finish
+    test();
+
     return (
         <div>
             <table className="table table-borderless">
@@ -73,11 +102,11 @@ const TimeTable = () => {
                     </tbody>
                 </table>
 
-                <CourseCard
+                <SubSectionCard
                     startTime="10:00"
                     endTime="11:00"
                     weekDay={2}
-                ></CourseCard>
+                ></SubSectionCard>
             </div>
         </div>
     );
