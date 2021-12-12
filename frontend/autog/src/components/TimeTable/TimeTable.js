@@ -1,24 +1,23 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./TimeTable.css";
 import uniqid from "uniqid";
 import SubSectionCard, {getAllSubSections} from "../SubSectionCard/SubSectionCard";
 import Course from "../../model/Course";
-
+import Section from "../../model/Section";
+import SubSection from "../../model/SubSection";
 //TODO remove the test function when finish
 //===========
 
-
-function fetchData(){
-    return fetch("./hardCodeData/Example.json").then(res=>{return res.json();})
+function fetchData(path){
+    return fetch(path).then(res=>{return res.json();})
 }
 
 
 const test = ()=>{
-    let promise = fetchData();
-    promise.then(
+    let promise1 = fetchData("./hardCodeData/Example.json");
+    promise1.then(
         json =>{
-            console.log("the json is ", json);
             let c = Course.fromJson(json);
             console.log(c);
         }
@@ -26,14 +25,32 @@ const test = ()=>{
         console.log(message);
         console.log("promise failed");
     })
+
+    let promise2 = fetchData("./hardCodeData/SubSectionExample.json");
+    promise2.then(
+        json =>{
+            let ss = SubSection.fromJson(json);
+            console.log(ss);
+        }
+    )
+
+    let promise3 = fetchData("./hardcodeData/SectionExample.json");
+    promise3.then(
+        json=>{
+            let s = Section.fromJson(json);
+            console.log(s);
+        }
+    )
 }
 
 //==========
 const TimeTable = () => {
     let timeRange = Array.from(Array(21).keys()).slice(8);
 
-    //TODO remove these testing code when finish
-    test();
+    //TODO remove this useEffect hook after adding formal testcases
+    useEffect(() => {
+        test();
+    }, [])
 
     return (
         <div>
