@@ -1,64 +1,125 @@
 var express = require('express');
 var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
+var { buildSchema, GraphQLSchema, GraphQLObjectType, GraphQLString, GraphQLInt, GraphQLGraphQLList, GraphQLNonNull, GraphQLList } = require('graphql');
 
 
+const dataBase = require('./fake_data.json')
 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-    type Times{
-        day: String!
-        start: Int!
-        end: Int!
-        duration: Int!
-        location: String
-    }
-    type Sections{
-        code: String
-        instructors: [String]
-        times: [Times!] 
-    }
-    type Course {
-        id: String!
-        code: String!
-        name: String!
-        description: String!
-        division: String!
-        department: String!
-        prerequisites: String!
-        exclusions: String!
-        level: Int!
-        term: String!
-        breadths: [Int!]
-        size: Int
-        enrolment: Int
-        sections: [Sections]!
-    }
-    type Query {
-        hello: String
-        getCourses(dep: String!): [Course!]
-    }
-    
-`);
-
-// The root provides a resolver function for each API endpoint
-var root = {
-    hello: () => {
-        return 'Hello world!';
+// Define the schema (with resolver)
+const times = new GraphQLObjectType({
+  name: 'Times',
+  description: 'Times for the section',
+  fields: {
+    day: {
+      type: GraphQLNonNull(GraphQLString)
     },
-    getCourses: (args) => {
-        console.log(args)
-        var someObject = require('./fake_data.json')
-        console.log(someObject)
-        return []
+    start: {
+      type: GraphQLNonNull(GraphQLInt)
+    },
+    end: {
+      type: GraphQLNonNull(GraphQLInt)
+    },
+    duration: {
+      type: GraphQLNonNull(GraphQLInt)
+    },
+    location: {
+      type: GraphQLString
+    },
+  }
+})
+
+const sections = new GraphQLObjectType({
+  name: 'Sections',
+  description: 'The description of a course',
+  fields: {
+    code: {
+      type: GraphQLString
+    },
+    instructors: {
+      type: GraphQLList(GraphQLString)
+    },
+    times: {
+      type: GraphQLList(times)
     }
-};
+  }
+})
+
+const course = new GraphQLObjectType({
+  name: 'Course',
+  description: 'just a course',
+  fields: {
+    id: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    code: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    name: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    description: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    division: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    department: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    prerequisites: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    exclusions: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    level: {
+      type: GraphQLNonNull(GraphQLInt)
+    },
+    term: {
+      type: GraphQLNonNull(GraphQLString)
+    },
+    breadths: {
+      type: GraphQLList(GraphQLInt)
+    },
+    size: {
+      type: GraphQLInt
+    },
+    enrolment: {
+      type: GraphQLInt
+    },
+    sections: {
+      type: GraphQLNonNull(GraphQLList(sections))
+    },
+  }
+})
+
+const rootQuery = new GraphQLObjectType({
+  name: 'RootQuery',
+  description: 'This is the root query',
+  fields: {
+    getAllCourses: {
+      type: GraphQLList(course),
+      resolve: () => dataBase
+    },
+    getCourseByCode: {
+      type: course,
+      args: {
+        code: {type: GraphQLString}
+      },
+      resolve: (_, {code}) => dataBase.find(course => course.code == code)
+    }
+
+  }
+})
+
+const schema = new GraphQLSchema ({
+  query:rootQuery
+})
 
 var app = express();
 app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
+  schema: schema,
+  graphiql: true,
 }));
 app.listen(4000);
 console.log('Running a GraphQL API server at http://localhost:4000/graphql');
