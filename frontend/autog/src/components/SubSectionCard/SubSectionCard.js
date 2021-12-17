@@ -1,22 +1,33 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import uniqid from "uniqid";
 
 //TODO: finish the function
 /**
- * generate 
- * @param {Section} section, represent a section, see model/README.md for explanation 
+ * generate
+ * @param {Section} section, represent a section, see model/README.md for explanation
  */
-export const getAllSubSections = (section) =>{
-    console.log("cao ni ma")
-
+export const getAllSubSectionsGivenSection = (section) => {
+    return (
+        <React.Fragment key={uniqid()}>
+            {section.subsections.map((subsection) => (
+                <SubSectionCard
+                    startTime={subsection.startTime}
+                    endTime={subsection.endTime}
+                    weekDay={subsection.day}
+                    key={uniqid()}
+                ></SubSectionCard>
+            ))}
+        </React.Fragment>
+    );
 };
 
 const SubSectionCard = ({ startTime, endTime, weekDay }) => {
     const [TOP_PERCENT, LEFT_PERCENT, WIDTH_PERCENT, HIGHT_PERCENT] = [
-        (100 / 52),
-        (100 / 6),
-        (100 / 6),
-        (100 / 52),
+        100 / 52,
+        100 / 6,
+        100 / 6,
+        100 / 52,
     ];
     const START_TIME = "8:00";
     /**
@@ -49,16 +60,24 @@ const SubSectionCard = ({ startTime, endTime, weekDay }) => {
         let left = weekDay * LEFT_PERCENT;
         let height = timeDifference(startTime, endTime) * HIGHT_PERCENT;
         let width = WIDTH_PERCENT;
-        return {width: `${width}%`, height:`${height}%`, top: `${top}%`, left: `${left}%`, position: "absolute", zIndex:0};
+        return {
+            width: `${width}%`,
+            height: `${height}%`,
+            top: `${top}%`,
+            left: `${left}%`,
+            position: "absolute",
+            zIndex: 0,
+        };
     };
 
     return (
         <div
             className="card"
-            style = {getStyle(startTime, endTime, weekDay)}
+            style={getStyle(startTime, endTime, weekDay)}
+            key={uniqid()}
         >
-            SubSectionCard card, from {startTime} to {endTime} on weekday {weekDay}
-
+            SubSectionCard card, from {startTime} to {endTime} on weekday{" "}
+            {weekDay}
         </div>
     );
 };

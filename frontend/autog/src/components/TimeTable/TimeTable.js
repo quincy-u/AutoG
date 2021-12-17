@@ -1,47 +1,56 @@
-import React, {useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./TimeTable.css";
 import uniqid from "uniqid";
-import SubSectionCard, {getAllSubSections} from "../SubSectionCard/SubSectionCard";
+import SubSectionCard, {
+    getAllSubSectionsGivenSection,
+} from "../SubSectionCard/SubSectionCard";
 import Course from "../../model/Course";
 import Section from "../../model/Section";
 import SubSection from "../../model/SubSection";
 //TODO remove the test function when finish
 //===========
 
-function fetchData(path){
-    return fetch(path).then(res=>{return res.json();})
+function fetchData(path) {
+    return fetch(path).then((res) => {
+        return res.json();
+    });
 }
 
+const getAllSubSectionsGivenSections = (sections) => {
+    return (
+        <React.Fragment key={uniqid()}>
+            {sections.map((section) => {
+                return getAllSubSectionsGivenSection(section);
+            })}
+        </React.Fragment>
+    );
+};
 
-const test = ()=>{
+const test = () => {
     let promise1 = fetchData("./hardCodeData/Example.json");
-    promise1.then(
-        json =>{
+    promise1
+        .then((json) => {
             let c = Course.fromJson(json);
             console.log(c);
-        }
-    ).catch((message)=>{
-        console.log(message);
-        console.log("promise failed");
-    })
+        })
+        .catch((message) => {
+            console.log(message);
+            console.log("promise failed");
+        });
 
     let promise2 = fetchData("./hardCodeData/SubSectionExample.json");
-    promise2.then(
-        json =>{
-            let ss = SubSection.fromJson(json);
-            console.log(ss);
-        }
-    )
+    promise2.then((json) => {
+        let ss = SubSection.fromJson(json);
+        console.log(ss);
+    });
 
     let promise3 = fetchData("./hardcodeData/SectionExample.json");
-    promise3.then(
-        json=>{
-            let s = Section.fromJson(json);
-            console.log(s);
-        }
-    )
-}
+    promise3.then((json) => {
+        let s = Section.fromJson(json);
+        console.log(s);
+    });
+};
 
 //==========
 const TimeTable = () => {
@@ -50,7 +59,19 @@ const TimeTable = () => {
     //TODO remove this useEffect hook after adding formal testcases
     useEffect(() => {
         test();
-    }, [])
+        let promise1 = fetchData("./hardCodeData/Example.json");
+        promise1
+            .then((json) => {
+                let c = Course.fromJson(json);
+                setSelectedSections(c.sections);
+            })
+            .catch((message) => {
+                console.log(message);
+                console.log("promise failed");
+            });
+    }, []);
+
+    const [selectedSections, setSelectedSections] = useState([]);
 
     return (
         <div>
@@ -118,12 +139,7 @@ const TimeTable = () => {
                         ))}
                     </tbody>
                 </table>
-
-                <SubSectionCard
-                    startTime="10:00"
-                    endTime="11:00"
-                    weekDay={2}
-                ></SubSectionCard>
+                {getAllSubSectionsGivenSections(selectedSections)}
             </div>
         </div>
     );
