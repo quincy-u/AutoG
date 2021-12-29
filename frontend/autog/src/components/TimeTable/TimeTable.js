@@ -11,7 +11,7 @@ import SubSection from "../../model/SubSection";
 //TODO remove the test function when finish
 //===========
 
-function fetchData(path) {
+export function fetchData(path) {
     return fetch(path).then((res) => {
         return res.json();
     });

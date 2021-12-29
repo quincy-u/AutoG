@@ -2,10 +2,13 @@ import React from "react";
 import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import './LeftSider.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button'
 import uniqid from 'uniqid';
+import PopOutSectionSelector from "../PopOutSectionSelector/PopOutSectionSelector";
+import { fetchData } from "../TimeTable/TimeTable";
+import Course from "../../model/Course";
 
 const courseDB = [
     {
@@ -73,6 +76,21 @@ const LeftSider = (props) => {
     }
 
 
+    // code added for testing, TODO: delete when finish
+
+    const [testCourse, setTestCourse] = useState(null)
+
+    useEffect(() => {
+        let p1 = fetchData("./hardCodeData/Example.json");
+        p1.then((json)=>{
+            let c = Course.fromJson(json);
+            setTestCourse(c);
+            console.log(c);
+        })
+    }, [])
+
+
+
     return (
         <div className="LeftSider">
             <div className="SearchBar">
@@ -114,6 +132,7 @@ const LeftSider = (props) => {
                     ))}
                 </ListGroup>
             </div>
+            <PopOutSectionSelector course={testCourse}></PopOutSectionSelector>
         </div>
     )
 
